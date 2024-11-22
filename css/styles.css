@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: "Outfit", serif;
+    font-size: 20px;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: #E5F4E3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 1px 0px 5px rgba(15, 15, 15, .5);
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+header .logo img {
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 170px;
+    height: 90px;
+    display: flex;
+    margin-left: 20px;
+}
+
+header .logo img:hover {
+    transform: scale(1.2);
+}
+
+.header .nav-links {
+    display: flex;
+    list-style: none;
+}
+
+header .nav-links li {
+    margin-bottom: 10px;
+}
+
+header .nav-links li a {
+    font-size: 18px; 
+    display: block;
+    color: #212526;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 8px 18px;
+    transition: 0.2s;
+    border-radius: 30px;
+}
+
+header .nav-links li a:hover {
+    background: #FFFFFF;
+}
+
+header .nav-links {
+    display: block;
+    margin-top: 30px;
+    margin-right: 20px;
+}
+
+header .carrito {
+    margin-bottom: 10px;
+}
+
+header {
+    background: #E5F4E3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 1px 0px 5px rgba(15, 15, 15, .5);
+}
+
+header .logo img {
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 170px;
+    height: 90px;
+}
+
+header {
+    background: #E5F4E3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 1px 0px 5px rgba(15, 15, 15, .5);
+}
+
+header .logo img {
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 170px;
+    height: 90px;
+}
+
+.nuevos_ingresos {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.banner_inicio {
+    width: 75vw;
+    max-width: 1000px;
+    min-width: 320px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.banner_inicio img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 1px 0px 5px rgba(15, 15, 15, .5);
+}
+
+.n_productos {
+    font-size: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.flex-conteiner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 40px;
+}
+
+.caja {
+    background-color: white;
+    flex: 1 1 calc(33.333% - 20px); 
+    max-width: calc(33.333% - 20px);
+    text-align: center;
+    padding: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0;
+}
+
+.caja img {
+    width: 200px;
+    height: auto;
+    max-height: 200px;
+    margin-bottom: 10px;
+}
+
+.caja h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.caja p {
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.btn_carrito {
+    display: block;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin: 20px auto 0;
+    background: #E5F4E3;
+    color: black;
+    border-radius: 20px;
+    transition: all 0.3s;
+    text-align: center;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.flex-conteiner .caja .btn_carrito:hover {
+    transform: scale(1.1);
+}
+
+
+.acerca_de h1 {
+    font-size: 40px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.acerca_de {
+    text-align: center;
+    padding: 30px;
+    margin: 30px;
+}
+
+.acerca_de .eslogan {
+    margin: 15px;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #E5F4E3;
+    color: #000000;
+    padding: 40px 40px;
+    border-radius: 15px;
+    box-shadow: 1px 0px 5px rgba(15, 15, 15, .5);
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+    justify-items: center;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.footer-section p, .footer-section a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.footer-section a:hover {
+    color: #5DA9E9;
+    transform: scale(1.2);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.footer-section a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.caja_formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+.contactanos {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-family: "Outfit", serif;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 1px 0px 5px rgba(15, 15, 15, .3);
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+    color: #000000;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.btn_enviar {
+    margin-top: 10px;
+    margin-left: 400px;
+    margin-right: auto;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin: 20px auto 0;
+    background: #E5F4E3;
+    color: rgb(0, 0, 0);
+    border-radius: 20px;
+    transition: all 0.3s;
+    text-align: center;
+    width: fit-content;
+    border: 0;
+    cursor: pointer;
+}
+
+.btn_enviar:hover {
+    transform: scale(1.1);
+}
+
+
+.seccion_reseñas {
+    padding: 2em;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+.seccion_reseñas h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.reseñas_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5em;
+}
+  
+.reseña {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: all 0.3s;
+}
+
+.reseña:hover {
+    transform: scale(1.1);
+}
+
+.foto_cliente {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 1em;
+    object-fit: cover;
+}
+  
+.reseña h3 {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+  
+.reseña p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 0.5em;
+}
+  
+.reseña span {
+    font-size: 1.2em;
+    color: #FFD700;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+        height: auto;
+    }
+
+    header .logo img {
+        width: auto;
+        justify-content: center;
+    }
+
+    header .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    header .nav-links li a {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    header .icon-container {
+        margin-top: 10px;
+    }
+
+    .flex-conteiner {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .flex-conteiner .caja {
+        flex: 1 1 100%;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .flex-conteiner .caja img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+    }
+
+    .flex-conteiner .caja h2 {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    .flex-conteiner .caja p {
+        font-size: 16px;
+        color: #000000;
+        margin-bottom: 10px;
+    }
+
+    .btn_carrito {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+    
