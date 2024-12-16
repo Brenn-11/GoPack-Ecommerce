@@ -38,6 +38,7 @@ body {
 
 .navbar-nav .nav-link{
     color: #2c2c2c;
+    font-weight: 500;
     font-size: 18px;
     margin-left: 80px;
     margin-right: auto;
@@ -59,7 +60,7 @@ body {
 }
 
 .carrito-hamburguesa{
-    color: #000000;
+    color: #2c2c2c;
     margin-left: 80px;
 }
 
@@ -98,6 +99,7 @@ body {
     margin-bottom: 40px;
     text-align: center;
     color: #006D77;
+    font-weight: bold;
 }
 
 .flex-conteiner {
@@ -170,6 +172,7 @@ body {
     margin-bottom: 50px;
     text-align: center;
     color: #006D77;
+    font-weight: bold;
 }
 
 .acerca_de {
@@ -186,11 +189,12 @@ body {
 
 .footer {
     background-color: #83c5be;
-    color: #000000;
+    color: #2c2c2c;
     padding: 40px 40px;
     border-radius: 15px;
     box-shadow: 1px 0px 5px rgba(15, 15, 15, .5);
     margin-top: auto;
+    font-weight: bold;
 }
 
 .footer-container {
@@ -213,7 +217,7 @@ body {
 }
 
 .footer-section p, .footer-section a {
-    color: #000000;
+    color: #2c2c2c;
     text-decoration: none;
     font-size: 14px;
     transition: 0.2s;
@@ -265,6 +269,7 @@ body {
     margin-bottom: 40px;
     font-family: "Outfit", serif;
     color: #006D77;
+    font-weight: bold;
 }
 
 .formulario {
@@ -334,6 +339,7 @@ textarea {
     font-size: 2em;
     margin-bottom: 50px;
     color: #006D77;
+    font-weight: bold;
 }
 
 .reseñas_grid {
@@ -367,6 +373,7 @@ textarea {
 .reseña h3 {
     font-size: 1.2em;
     margin-bottom: 0.5em;
+    font-weight: bold;
 }
   
 .reseña p {
