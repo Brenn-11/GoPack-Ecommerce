@@ -97,6 +97,7 @@ body {
     margin-top: 40px;
     margin-bottom: 40px;
     text-align: center;
+    color: #006D77;
 }
 
 .flex-conteiner {
@@ -134,6 +135,7 @@ body {
 .caja h2 {
     font-size: 18px;
     margin: 10px 0;
+    color: #006D77;
 }
 
 .caja p {
@@ -165,8 +167,9 @@ body {
 .acerca_de h1 {
     font-size: 40px;
     margin-top: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     text-align: center;
+    color: #006D77;
 }
 
 .acerca_de {
@@ -178,6 +181,7 @@ body {
 .acerca_de .eslogan {
     margin: 15px;
     font-weight: bold;
+    color: #006D77;
 }
 
 .footer {
@@ -251,7 +255,6 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #ffffff;
     min-height: 100vh;
 }
 
@@ -261,18 +264,19 @@ body {
     margin-top: 10px;
     margin-bottom: 40px;
     font-family: "Outfit", serif;
+    color: #006D77;
 }
 
 .formulario {
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
     padding: 20px;
     width: 100%;
     max-width: 400px;
     border-radius: 8px;
     box-shadow: 1px 0px 5px rgba(15, 15, 15, .3);
     text-align: center;
+    background-color: white;
 }
 
 form {
@@ -284,6 +288,7 @@ label {
     margin-bottom: 10px;
     color: #000000;
     text-align: left;
+    color: #006D77;
 }
 
 input[type="text"],
@@ -304,8 +309,8 @@ textarea {
     padding: 10px 20px;
     font-size: 1rem;
     margin: 20px auto 0;
-    background: #E5F4E3;
-    color: rgb(0, 0, 0);
+    background: #006D77;
+    color: white;
     border-radius: 20px;
     transition: all 0.3s;
     text-align: center;
@@ -321,13 +326,14 @@ textarea {
 
 .seccion_reseñas {
     padding: 2em;
-    background-color: #f9f9f9;
     text-align: center;
+    margin-bottom: 100px;
   }
   
 .seccion_reseñas h2 {
     font-size: 2em;
-    margin-bottom: 1em;
+    margin-bottom: 50px;
+    color: #006D77;
 }
 
 .reseñas_grid {
@@ -343,6 +349,7 @@ textarea {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
     transition: all 0.3s;
+    color: #006D77;
 }
 
 .reseña:hover {
