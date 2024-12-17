@@ -194,7 +194,7 @@ body {
     border-radius: 15px;
     box-shadow: 1px 0px 5px rgba(15, 15, 15, .5);
     margin-top: auto;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .footer-container {
@@ -224,7 +224,6 @@ body {
 }
 
 .footer-section a:hover {
-    color: #EDF6F9;
     transform: scale(1.2);
 }
 
@@ -294,6 +293,7 @@ label {
     color: #000000;
     text-align: left;
     color: #006D77;
+    font-weight: 500;
 }
 
 input[type="text"],
@@ -327,6 +327,36 @@ textarea {
 .btn_enviar:hover {
     transform: scale(1.1);
 }
+
+#error-message {
+    color: red;
+    font-size: 14px;
+    background-color: #f8d7da;
+    padding: 10px;
+    padding-bottom: 1px;
+    padding-top: 10px;
+    border-radius: 5px;
+    display: none;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+input[type="text"], input[type="email"] {
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="email"]:focus {
+    border-color: #007bff;
+}
+
+input[type="text"].error, input[type="email"].error {
+    border-color: red;
+}
+
 
 
 .seccion_reseñas {
