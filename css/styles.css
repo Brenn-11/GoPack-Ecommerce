@@ -117,12 +117,11 @@ body {
 /* Estilo de cada tarjeta de producto */
 .card {
     width: 250px;
-    border: 1px solid #ddd;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
     background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     margin: 0 auto;
 }
@@ -476,31 +475,46 @@ input[type="text"].error, input[type="email"].error {
 
 /* Carrito */
 
+#contenedor-carrito {
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+#lista-carrito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
 #lista-carrito li {
-    display: flex; /* Diseño en línea para los elementos. */
-    align-items: center; /* Centrado vertical. */
-    background-color: white; /* Fondo claro para destacar el contenido. */
+    display: flex; 
+    align-items: center; 
+    background-color: white; 
     padding: 15px;
-    border-radius: 10px; /* Bordes suaves. */
-    border: 1px solid #ddd; /* Borde ligero. */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave. */
-    width: 90%; /* Limita el ancho de las tarjetas. */
-    max-width: 800px; /* Tamaño máximo para evitar que sean demasiado anchas. */
-    margin: 10px auto; /* Espaciado entre tarjetas y centrado. */
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%; 
+    max-width: 800px;
+    margin: 10px auto;
 }
 
 .imagen-carrito {
-    width: 80px; /* Tamaño fijo de la imagen. */
-    height: 80px; /* Proporcional al ancho. */
-    object-fit: contain; /* Asegura que no se corte la imagen. */
-    margin-right: 20px; /* Espacio entre la imagen y el contenido. */
+    width: 80px; 
+    height: 80px;
+    object-fit: contain; 
+    margin-right: 20px; 
     border-radius: 5px;
 }
 
 .titulo-carrito {
-    flex-grow: 1; /* Ocupa el espacio restante entre imagen y precio. */
-    text-align: center; /* Centra el título. */
-    font-size: 15px; /* Ajusta el tamaño del texto. */
+    flex-grow: 1; 
+    text-align: center; 
+    font-size: 15px; 
     color: #333;
 }
 
@@ -526,32 +540,32 @@ input[type="text"].error, input[type="email"].error {
 
 .cantidad-producto:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #006D77;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Estilo para el botón de eliminar de cada producto */
+
 .eliminar-producto {
-    background-color: #ff6b3e;  /* Naranja para eliminar */
+    background-color: #ff6b3e; 
     color: white;
     padding: 5px 15px;
     border: none;
-    border-radius: 20px;  /* Bordes redondeados */
+    border-radius: 20px;  
     cursor: pointer;
     transition: 0.3s;
-    font-size: 14px;
+    font-size: 20px;
     margin-left: 10px;
 }
 
 .eliminar-producto:hover {
-    background-color: #e35d2f;  /* Naranja más oscuro al pasar el mouse */
+    background-color: #e35d2f; 
 }
 
 .precio-carrito {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     color: #006D77;
-    margin-left: 20px; /* Espaciado con el título. */
+    margin-left: 20px; 
 }
 
 .producto-info {
@@ -559,7 +573,7 @@ input[type="text"].error, input[type="email"].error {
 }
 
 #total-carrito {
-    font-size: 20px;
+    font-size: 30px;
     margin-top: 20px;
     margin-bottom: 30px;
     text-align: center;
@@ -575,7 +589,7 @@ input[type="text"].error, input[type="email"].error {
     border-radius: 20px;
     cursor: pointer;
     transition: 0.3s;
-    margin-bottom: 30px;
+    font-size: 20px;
 }
 
 #vaciar-carrito:hover {
@@ -591,7 +605,7 @@ input[type="text"].error, input[type="email"].error {
     cursor: pointer;
     transition: 0.3s;
     margin-left: 20px;
-    margin-bottom: 80px;
+    font-size: 20px;
 }
 
 #pagar:hover {
@@ -601,7 +615,7 @@ input[type="text"].error, input[type="email"].error {
 
 #vaciar-carrito, #pagar {
     display: block;
-    margin: 15px auto;
+    margin: 10px auto;
     text-align: center;
 }
 
@@ -619,9 +633,9 @@ input[type="text"].error, input[type="email"].error {
         align-items: center;
     }
 
-    /* Estilo de las tarjetas */
+
     .card {
-        padding: 15px;
+        padding: 50px;
     }
 
     .card h3 {
@@ -636,13 +650,15 @@ input[type="text"].error, input[type="email"].error {
         padding: 12px;
         font-size: 14px;
     }
+
+   
+    
 }
 
-/* Media Query para pantallas pequeñas (móviles muy pequeños) */
+/* Media Query para pantallas pequeñas */
 @media (max-width: 480px) {
-    /* Modificar aún más el diseño */
     #productos-container {
-        grid-template-columns: 1fr; /* Mantener solo una columna */
+        grid-template-columns: 1fr;
         padding: 10px;
     }
 
@@ -662,6 +678,8 @@ input[type="text"].error, input[type="email"].error {
         padding: 8px;
         font-size: 12px;
     }
+
+
 }
 
     
