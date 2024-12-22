@@ -157,7 +157,7 @@ body {
 /* Botón de añadir al carrito */
 .card button {
     background-color: #83c5be;
-    color: white;
+    color: #333;
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
@@ -168,12 +168,13 @@ body {
 
 .card button:hover {
     background-color: #006D77;
+    color: white;
 }
 
 
 .paginacion-btn {
     background-color: #83c5be;
-    color: white;
+    color: #333;
     border: none;
     padding: 10px 20px;
     margin: 0 5px;
@@ -185,6 +186,7 @@ body {
 
 .paginacion-btn:hover {
     background-color: #004d40;
+    color: white;
 }
 
 .paginacion-btn:disabled {
