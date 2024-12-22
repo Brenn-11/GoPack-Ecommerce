@@ -102,69 +102,99 @@ body {
     font-weight: bold;
 }
 
-.flex-conteiner {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-    padding: 10px;
-    box-sizing: border-box;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 40px;
+/* Contenedor de los productos */
+/* Contenedor de los productos */
+#productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Mínimo 250px por tarjeta */
+    gap: 20px; /* Espacio entre tarjetas */
+    justify-content: center;
+    padding: 20px;
+    margin-top: 20px;
 }
 
-.caja {
-    background-color: white;
-    flex: 1 1 calc(33.333% - 20px); 
-    max-width: calc(33.333% - 20px);
+/* Estilo de cada tarjeta de producto */
+.card {
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
     text-align: center;
-    padding: 10px;
-    overflow: hidden;
-    box-sizing: border-box;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.caja img {
-    width: 200px;
-    height: auto;
-    max-height: 200px;
-    margin-bottom: 10px;
+.card:hover {
+    transform: translateY(-10px);
 }
 
-.caja h2 {
+/* Imagen de cada producto */
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; /* Ajusta la imagen sin recortarla */
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Título del producto */
+.card h3 {
     font-size: 18px;
     margin: 10px 0;
     color: #006D77;
 }
 
-.caja p {
-    font-size: 20px;
-    color: #3A5743;
-    margin-bottom: 10px;
+/* Precio del producto */
+.card p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
 }
 
-.btn_carrito {
-    display: block;
-    text-decoration: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    margin: 20px auto 0;
-    background: #006d77;
+/* Botón de añadir al carrito */
+.card button {
+    background-color: #83c5be;
     color: white;
+    border: none;
+    padding: 10px 20px;
     border-radius: 20px;
-    transition: all 0.3s;
-    text-align: center;
-    width: fit-content;
-    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
 }
 
-.flex-conteiner .caja .btn_carrito:hover {
-    transform: scale(1.1);
+.card button:hover {
+    background-color: #006D77;
 }
 
+
+#paginador {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+#paginador button {
+    background-color: #006D77;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#paginador button:hover {
+    background-color: #83c5be;
+}
+
+#paginador button:focus {
+    outline: none;
+}
 
 .acerca_de h1 {
     font-size: 40px;
@@ -187,6 +217,7 @@ body {
     color: #006D77;
 }
 
+/* Footer */
 .footer {
     background-color: #83c5be;
     color: #2c2c2c;
@@ -271,6 +302,7 @@ body {
     font-weight: bold;
 }
 
+/* Formulario */
 .formulario {
     display: flex;
     flex-direction: column;
@@ -358,7 +390,7 @@ input[type="text"].error, input[type="email"].error {
 }
 
 
-
+/*Reseñas*/
 .seccion_reseñas {
     padding: 2em;
     text-align: center;
@@ -440,7 +472,7 @@ input[type="text"].error, input[type="email"].error {
 }
 
 .ver-mas {
-    background-color: #006D77;
+    background-color: #1a1a1a;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -463,6 +495,145 @@ input[type="text"].error, input[type="email"].error {
 }
 
 
+/* Carrito */
+
+#lista-carrito li {
+    display: flex; /* Diseño en línea para los elementos. */
+    align-items: center; /* Centrado vertical. */
+    background-color: white; /* Fondo claro para destacar el contenido. */
+    padding: 15px;
+    border-radius: 10px; /* Bordes suaves. */
+    border: 1px solid #ddd; /* Borde ligero. */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave. */
+    width: 90%; /* Limita el ancho de las tarjetas. */
+    max-width: 800px; /* Tamaño máximo para evitar que sean demasiado anchas. */
+    margin: 10px auto; /* Espaciado entre tarjetas y centrado. */
+}
+
+.imagen-carrito {
+    width: 80px; /* Tamaño fijo de la imagen. */
+    height: 80px; /* Proporcional al ancho. */
+    object-fit: contain; /* Asegura que no se corte la imagen. */
+    margin-right: 20px; /* Espacio entre la imagen y el contenido. */
+    border-radius: 5px;
+}
+
+.titulo-carrito {
+    flex-grow: 1; /* Ocupa el espacio restante entre imagen y precio. */
+    text-align: center; /* Centra el título. */
+    font-size: 15px; /* Ajusta el tamaño del texto. */
+    color: #333;
+}
+
+#titulo-carrito {
+    font-size: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #006D77;
+    font-weight: bold;
+}
+
+/* Estilo para el botón de eliminar de cada producto */
+.eliminar-producto {
+    background-color: #ff6b3e;  /* Naranja para eliminar */
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 20px;  /* Bordes redondeados */
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.eliminar-producto:hover {
+    background-color: #e35d2f;  /* Naranja más oscuro al pasar el mouse */
+}
+
+.precio-carrito {
+    font-size: 16px;
+    font-weight: bold;
+    color: #006D77;
+    margin-left: 20px; /* Espaciado con el título. */
+}
+
+.producto-info {
+    flex-grow: 1;
+}
+
+#total-carrito {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #006D77;
+    font-weight: bold;
+}
+
+#vaciar-carrito {
+    background-color: #006D77;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 30px;
+}
+
+#vaciar-carrito:hover {
+    background-color: #d65a34;
+}
+
+#pagar {
+    background-color: #83c5be;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 20px;
+    margin-bottom: 80px;
+}
+
+#pagar:hover {
+    background-color: #42c958;
+    color: white;
+}
+
+#vaciar-carrito, #pagar {
+    display: block;
+    margin: 15px auto;
+    text-align: center;
+}
+
+#paginacion {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.paginacion-btn {
+    background-color: #006D77;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.paginacion-btn:hover {
+    background-color: #004d40;
+}
+
+.paginacion-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
 
 
 @media (max-width: 768px) {
