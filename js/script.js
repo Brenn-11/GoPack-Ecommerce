@@ -43,9 +43,21 @@ document.addEventListener("DOMContentLoaded", () =>{
     }
 });
 
+function mostrarMensaje(mensaje) {
+    // Crear un div para mostrar el mensaje
+    const mensajeDiv = document.createElement('div');
+    mensajeDiv.classList.add('mensaje-carrito');
+    mensajeDiv.textContent = mensaje;
 
-// Función para agregar un producto al carrito (fuera del bloque DOMContentLoaded)
-// Función para agregar un producto al carrito
+    // Añadir el mensaje al cuerpo de la página
+    document.body.appendChild(mensajeDiv);
+
+    // Hacer desaparecer el mensaje después de 3 segundos
+    setTimeout(() => {
+        mensajeDiv.remove();
+    }, 3000); // El mensaje desaparece después de 3 segundos
+}
+
 // Función para agregar un producto al carrito
 function agregarAlCarrito(id, nombre, precio, imagen) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -90,22 +102,32 @@ function actualizarCarrito() {
     cargarCarrito();
 }
 
+
+
 // Función para cargar el carrito (global)
-// Función para agregar un producto al carrito
 function agregarAlCarrito(id, nombre, precio, imagen) {
+    console.log("Función agregarAlCarrito llamada");  // Verifica si se llama la función
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    // Verificar si el producto ya está en el carrito
-    if (carrito.some(producto => producto.id === id)) {
-        alert("El producto ya está en el carrito.");
-        return;
+    // Buscar si el producto ya existe en el carrito
+    const productoExistente = carrito.find(producto => producto.id === id);
+
+    if (productoExistente) {
+        // Incrementar la cantidad del producto existente
+        productoExistente.cantidad += 1;
+    } else {
+        // Agregar un nuevo producto con cantidad inicial 1
+        carrito.push({ id, nombre, precio, imagen, cantidad: 1 });
     }
 
-    // Agregar el producto al carrito
-    carrito.push({ id, nombre, precio, imagen });
+    // Guardar el carrito actualizado en localStorage
     localStorage.setItem("carrito", JSON.stringify(carrito));
+    
+    alert(`Producto "${nombre}" añadido al carrito.`)
     actualizarCarrito();
 }
+
+
 
 // Función para eliminar un producto del carrito (global)
 function eliminarDelCarrito(id) {
@@ -121,14 +143,43 @@ function eliminarDelCarrito(id) {
     actualizarCarrito();
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    // Vincular el botón de pagar con la función pagar
+    document.getElementById("pagar").addEventListener("click", pagar);
+});
+
+
+function pagar() {
+    // Verificar si el carrito tiene productos
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    if (carrito.length === 0) {
+        alert("El carrito está vacío. No se puede procesar el pago.");
+        return;
+    }
+
+    // Vaciar el carrito
+    localStorage.removeItem("carrito");
+    actualizarCarrito();
+    // Mostrar el mensaje de "Gracias por su compra"
+    const mensajeCompra = document.getElementById("mensaje-compra");
+    mensajeCompra.style.display = "block";
+    
+    // Ocultar el mensaje después de unos segundos (opcional)
+    setTimeout(() => {
+        mensajeCompra.style.display = "none";
+    }, 3000); // El mensaje se oculta después de 3 segundos
+}
+
+
 // Función para vaciar el carrito (global)
 function vaciarCarrito() {
-    // Eliminar todo el carrito de localStorage
+    // Vaciar el carrito en localStorage
     localStorage.removeItem("carrito");
 
     // Actualizar el carrito en la interfaz
     actualizarCarrito();
 }
+
 
 // Función para actualizar el carrito (global)
 function actualizarCarrito() {
@@ -140,47 +191,71 @@ function cargarCarrito() {
     const listaCarrito = document.getElementById("lista-carrito");
     const totalCarrito = document.getElementById("total-carrito");
 
-    // Limpiar el contenido actual del carrito
     listaCarrito.innerHTML = "";
 
-    // Obtener el carrito del localStorage
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    // Revisar si el carrito está vacío
     if (carrito.length === 0) {
         listaCarrito.innerHTML = "<li>El carrito está vacío.</li>";
         totalCarrito.textContent = "Total: $0.00";
         return;
     }
 
-    // Variable para calcular el total
     let total = 0;
 
-    // Iterar por los productos del carrito
     carrito.forEach((producto) => {
-        // Crear elementos para mostrar cada producto (incluyendo la imagen)
+        // Crear un elemento de lista con un input para la cantidad
         const li = document.createElement("li");
-        li.classList.add("item-carrito"); // Añadir clase para el estilo
+        li.classList.add("item-carrito");
 
-        // Crear estructura para cada item
         li.innerHTML = `
             <img src="${producto.imagen}" class="imagen-carrito" alt="${producto.nombre}">
             <div class="producto-info">
                 <h3>${producto.nombre}</h3>
-                <p>$${producto.precio}</p>
+                <p>Precio unitario: $${producto.precio}</p>
+                <label>
+                    Cantidad:
+                    <input type="number" class="cantidad-producto" min="1" value="${producto.cantidad}" data-id="${producto.id}">
+                </label>
+                <p>Subtotal: $${(producto.precio * producto.cantidad).toFixed(2)}</p>
             </div>
             <button class="eliminar-producto" onclick="eliminarDelCarrito(${producto.id})">Eliminar</button>
         `;
 
         listaCarrito.appendChild(li);
-
-        // Sumar el precio del producto al total
-        total += parseFloat(producto.precio);
+        total += producto.precio * producto.cantidad;
     });
 
-    // Actualizar el total en el HTML
     totalCarrito.textContent = `Total: $${total.toFixed(2)}`;
+
+    // Agregar eventos para actualizar cantidades
+    const inputsCantidad = document.querySelectorAll(".cantidad-producto");
+    inputsCantidad.forEach(input => {
+        input.addEventListener("change", (e) => actualizarCantidad(e.target.dataset.id, e.target.value));
+    });
 }
+
+function actualizarCantidad(id, nuevaCantidad) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    nuevaCantidad = parseInt(nuevaCantidad);
+
+    if (nuevaCantidad < 1) {
+        alert("La cantidad mínima es 1.");
+        return;
+    }
+
+    carrito = carrito.map(producto => {
+        if (producto.id === parseInt(id)) {
+            producto.cantidad = nuevaCantidad;
+        }
+        return producto;
+    });
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    actualizarCarrito();
+}
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
     let productosPorPagina = 6; // Número de productos por página
