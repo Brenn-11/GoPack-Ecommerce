@@ -43,26 +43,12 @@ document.addEventListener("DOMContentLoaded", () =>{
     }
 });
 
-function mostrarMensaje(mensaje) {
-    // Crear un div para mostrar el mensaje
-    const mensajeDiv = document.createElement('div');
-    mensajeDiv.classList.add('mensaje-carrito');
-    mensajeDiv.textContent = mensaje;
 
-    // Añadir el mensaje al cuerpo de la página
-    document.body.appendChild(mensajeDiv);
-
-    // Hacer desaparecer el mensaje después de 3 segundos
-    setTimeout(() => {
-        mensajeDiv.remove();
-    }, 3000); // El mensaje desaparece después de 3 segundos
-}
 
 // Función para agregar un producto al carrito
 function agregarAlCarrito(id, nombre, precio, imagen) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    // Verificar si el producto ya está en el carrito
     if (carrito.some(producto => producto.id === id)) {
         alert("El producto ya está en el carrito.");
         return;
@@ -78,13 +64,11 @@ function agregarAlCarrito(id, nombre, precio, imagen) {
 function eliminarDelCarrito(id) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     
-    // Filtrar el producto que se quiere eliminar
     carrito = carrito.filter(producto => producto.id !== id);
     
-    // Guardar el carrito actualizado en localStorage
+
     localStorage.setItem("carrito", JSON.stringify(carrito));
     
-    // Actualizar el carrito en la interfaz
     actualizarCarrito();
 }
 
@@ -120,7 +104,6 @@ function agregarAlCarrito(id, nombre, precio, imagen) {
         carrito.push({ id, nombre, precio, imagen, cantidad: 1 });
     }
 
-    // Guardar el carrito actualizado en localStorage
     localStorage.setItem("carrito", JSON.stringify(carrito));
     
     alert(`Producto "${nombre}" añadido al carrito.`)
@@ -133,13 +116,10 @@ function agregarAlCarrito(id, nombre, precio, imagen) {
 function eliminarDelCarrito(id) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     
-    // Filtrar el producto que se quiere eliminar
     carrito = carrito.filter(producto => producto.id !== id);
     
-    // Guardar el carrito actualizado en localStorage
     localStorage.setItem("carrito", JSON.stringify(carrito));
     
-    // Actualizar el carrito en la interfaz
     actualizarCarrito();
 }
 
@@ -160,33 +140,24 @@ function pagar() {
     // Vaciar el carrito
     localStorage.removeItem("carrito");
     actualizarCarrito();
-    // Mostrar el mensaje de "Gracias por su compra"
     const mensajeCompra = document.getElementById("mensaje-compra");
     mensajeCompra.style.display = "block";
     
-    // Ocultar el mensaje después de unos segundos (opcional)
     setTimeout(() => {
         mensajeCompra.style.display = "none";
-    }, 3000); // El mensaje se oculta después de 3 segundos
+    }, 3000); // Se oculta después de 3 segundos
 }
 
 
-// Función para vaciar el carrito (global)
 function vaciarCarrito() {
-    // Vaciar el carrito en localStorage
     localStorage.removeItem("carrito");
-
-    // Actualizar el carrito en la interfaz
     actualizarCarrito();
 }
 
-
-// Función para actualizar el carrito (global)
 function actualizarCarrito() {
     cargarCarrito();
 }
 
-// Función para cargar el carrito (global)
 function cargarCarrito() {
     const listaCarrito = document.getElementById("lista-carrito");
     const totalCarrito = document.getElementById("total-carrito");
@@ -258,8 +229,8 @@ function actualizarCantidad(id, nuevaCantidad) {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    let productosPorPagina = 6; // Número de productos por página
-    let paginaActual = 1; // Página inicial
+    let productosPorPagina = 4;
+    let paginaActual = 1;
 
     // Fetch de la API para cargar los productos en productos.html
     fetch("https://fakestoreapi.com/products")
@@ -317,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function() {
             mostrarProductos(paginaActual);
         });
 
-    // Eventos iniciales en carrito.html
+    
     actualizarCarrito();
     document.getElementById("vaciar-carrito").addEventListener("click", vaciarCarrito);
 });
